@@ -1,5 +1,5 @@
 import os
-from .series import *
+from .storage import *
 from .util import *
 from .version import __version__
 
