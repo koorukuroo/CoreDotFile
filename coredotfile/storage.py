@@ -23,7 +23,7 @@ def put_object_storage(key, content):
 
     info = get_presigned_upload_url(key)
     result = requests.put(info['url'], data=content)
-    return {'status': result['status_code'], 'message': 'Upload successful'}
+    return {'status': result.status_code, 'message': 'Upload successful'}
 
 
 def get_object_storage(key, target_file=None, filename=None):
@@ -33,8 +33,8 @@ def get_object_storage(key, target_file=None, filename=None):
         target_file = key
 
     info = get_presigned_download_url(key)
-    r = requests.get(info['url'])
+    result = requests.get(info['url'])
     with open(target_file, 'wb') as f:
-        f.write(r.content)
-    return {'status': r['status_code'], 'message': 'Download successful', 'content': r.content}
+        f.write(result.content)
+    return {'status': result.status_code, 'message': 'Download successful', 'content': result.content}
 
