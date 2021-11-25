@@ -1,7 +1,7 @@
 import requests
 import urllib3
 
-urllib3.disable_warning(urllib3.exceptions.InsecureRequestWarning)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def download_file(url: str, apikey: str, filename: str):
     if not filename.endswith('.zip'):
