@@ -1,7 +1,11 @@
 import requests
+import urllib3
 
+urllib3.disable_warning(urllib3.exceptions.InsecureRequestWarning)
 
 def download_file(url: str, apikey: str, filename: str):
+    if not filename.endswith('.zip'):
+        filename += '.zip'
     # NOTE the stream=True parameter below
     with requests.post(url, data={"apikey": apikey}, stream=True, verify=False) as r:
         r.raise_for_status()
