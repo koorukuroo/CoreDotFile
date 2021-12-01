@@ -4,21 +4,21 @@
 
 from setuptools import setup, find_packages
 
+__version__ = "0.0.2"
+
 with open("README.md") as readme_file:
     readme = readme_file.read()
 
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = [
-    "Click>=7.1.2",
-]
+requirements = ["Click>=7.1.2", "requests==2.26.0"]
 
 test_requirements = [
     "pytest>=3",
 ]
 
-exec(open('coredotfile/version.py').read())
+exec(open("coredotfile/version.py").read())
 setup(
     author="CoreDotToday",
     author_email="engine@core.today",
